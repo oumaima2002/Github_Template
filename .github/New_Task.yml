@@ -1,0 +1,93 @@
+name: 💼New ISSUE
+description: Create a new task .
+labels: ["task type"]
+assignees: ["developer1", "developer2",...]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out the task steps!
+  - type: checkboxes
+    id: IssueType
+    attributes:
+      label: Type Issue
+      options:
+        - label: BUG 🐍
+        - label: FEATURE 🚀
+        - label: GENERAL 💼
+  - type: textarea
+    id: Detailed_Task_Description
+    attributes:
+      label: Detailed Task Description
+      description:  Tell us a breif and general description for the task .
+      placeholder: |
+              Elaborate on the task, including its context, objectives, and any relevant background information. 
+              Be as detailed as possible.
+    validations:
+      required: true  
+  - type: textarea
+    id: Scenarios
+    attributes:
+      label: Notice
+      description: Here is an complete example  for the scenario of  processing an  issue.           
+      value: "
+        Example of handling the normal  Authentification task 
+          -conditions:use specific username/password combinations
+          -acts:act of submitting the username and password by clicking submit ( handling an event function)
+          -result: response of your product
+      "
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+       Tell us the different processing steps to handle the issue .
+       Remarque : You can have multiple scenarios for your issue , so please mention all the steps for each scenario in the following parts.
+  - type: textarea
+    id: Raw_Scenario_Steps
+    attributes:
+      label: Conditions
+      description:  List the specific conditions or requirements for this scenario to be considered complete. Use concrete examples whenever possible.     
+    validations:
+      required: true 
+  - type: textarea
+    id: Acts
+    attributes:
+      label: Acts
+      description:  Tell us the event to act  realise a request event  for your task by folowing the example above.
+    validations:
+      required: true
+  - type: textarea
+    id: Result
+    attributes:
+      label: Result
+      description:  Tell us the expected behavior or result of this issue  by folowing the example above.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+       If there are any related issues, pull requests, or reference documents, please link them here.
+
+  - type: input
+    id: time
+    attributes:
+      label: Due Date
+      description: Specify a due date if there's a deadline for this task.
+      placeholder: exemple 14/09/2023
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+       By submitting this issue, you agree that the task description can be automatically 
+       converted to Gherkin language based on the provided information.
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: Agreement
+      options:
+        - label: I agree
+ 

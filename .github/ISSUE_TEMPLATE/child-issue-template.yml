@@ -1,0 +1,23 @@
+name: Child Issue Template
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  create-child-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Child Issue
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const childIssue = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Child Issue',
+              body: 'This is a child issue related to the parent issue.'
+            };
+            await github.issues.create(childIssue);
